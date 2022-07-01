@@ -1,24 +1,26 @@
-function addPropertyV1(obj, key, value) {
-    obj[key] = value;
-    return obj;
-}
-
-// put your code here
-function addPropertyV2(obj, key, value) {
-    return Object.assign(obj, { [key]: value });
-}
-
-// put your code here
-function addPropertyV3(obj, key, value) {
-    return Object.assign({}, obj, { [key]: value });
-}
-
-// put your code here
-function addPropertyV4(obj, key, value) {
-    return { ...obj, [key]: value };
-}
-// examples
-const transaction = {
-    value: 170,
+const timer = {
+    secondsPassed: 0,
+    minsPassed: 0,
+    startTimer() {
+        this.startTimer.intervalId = setInterval(() => {
+            this.secondsPassed += 1;
+            if (this.secondsPassed >= 60) {
+                this.secondsPassed = 0;
+                this.minsPassed += 1;
+            }
+        }, 1000);
+    },
+    stopTimer() {
+        clearInterval(this.startTimer.intervalId);
+    },
+    getTime() {
+        if (this.secondsPassed < 10) {
+            return `${this.minsPassed}:0${this.secondsPassed}`;
+        }
+        return `${this.minsPassed}:${this.secondsPassed}`;
+    },
+    resetTimer() {
+        this.secondsPassed = 0;
+        this.minsPassed = 0;
+    },
 };
-addPropertyV1(transaction, 'currency', 'USD'); // ==> { value: 170, currency: 'USD' }

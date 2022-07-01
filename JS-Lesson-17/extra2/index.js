@@ -1,7 +1,21 @@
-const buildObject = (keysList, valuesList) =>
-    keysList.reduce((obj, item, index) => Object.assign(obj, { [item]: valuesList[index] }), {});
+function bind(func, context, ...args1) {
+    return function (...args2) {
+        return func.call(context, ...args1, ...args2);
+    };
+}
 
-// examples
-const keys = ['name', 'address', 'age'];
-const values = ['Bob', 'Ukraine', 34];
-const result = buildObject(keys, values); // ==> { name: 'Bob', address: 'Ukraine', age: 56 }
+
+const user = {
+    name: 'John',
+    age: 18,
+    job: 'unemployed',
+    sayInfo(phone, email) {
+        console.log(`Name: ${this.name}, phone: ${phone}, email: ${email}`);
+    },
+    sum(a, b, c) {
+        console.log(this.age + b + a + c);
+        return this.age + b + a + c;
+    },
+};
+
+const test = bind(user.sayInfo, user, 322, 'jkq');

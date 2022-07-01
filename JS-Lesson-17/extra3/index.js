@@ -1,34 +1,41 @@
-function compareObjects(obj1, obj2) {
-    const first = [].concat(...Object.entries(obj1));
-    const second = [].concat(...Object.entries(obj2));
-    let count = 0;
-    if (first.length !== second.length) {
-        return false;
+function calculator(a, b) {
+    console.log(this);
+    switch (this.operation) {
+        case '+':
+            return a + b;
+        case '-':
+            return a - b;
+        case '/':
+            return a / b;
+        case '*':
+            return a * b;
+        default:
+            return NaN;
     }
-    if (first.length === second.length) {
-        first.forEach(el => (!second.includes(el) ? (count += 1) : false));
-    }
-    return count === 0;
 }
 
-// examples
-const obj1 = {
-    name: 'Tom',
-    age: 17,
-};
+/*
+ * Ф-ция multiplier должна быть создана на основе calculator
+ * с использования .bind
+ * и должна принимать 2 числа и возвращать из произведение
+ */
 
-const obj2 = {
-    name: 'Bob',
-    age: 17,
-};
+// put your code here
+const multiplier = calculator.bind({ operation: '*' });
 
-const obj3 = {
-    name: 'Bob',
-    age: 17,
-    student: false,
-};
+/*
+ * Ф-ция summator должна быть создана на основе calculator
+ * с использования .bind
+ * и должна принимать 2 числа и возвращать из сумму
+ */
 
-const obj4 = {
-    name: 'Tom',
-    age: 17,
-};
+// put your code here
+const summator = calculator.bind({ operation: '+' });
+/*
+ * Ф-ция twice должна быть создана на основе calculator
+ * с использования .bind
+ * и должна принимать 1 число и возвращать это число умноженное на 2
+ */
+
+// put your code here
+const twice = calculator.bind({ operation: '*' }, 2);

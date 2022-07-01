@@ -1,40 +1,23 @@
-function calculator(a, b) {
-    console.log(this);
-    switch (this.operation) {
-        case '+':
-            return a + b;
-        case '-':
-            return a - b;
-        case '/':
-            return a / b;
-        case '*':
-            return a * b;
-        default:
-            return NaN;
-    }
+const user = {
+    name: 'Tom',
+    sayHi() {
+        console.log(`Hi, ${this.name}`);
+    },
+};
+
+function sum(a, b) {
+    console.log(a + b);
 }
 
-/*
- * Ф-ция multiplier должна быть создана на основе calculator
- * с использования .bind
- * и должна принимать 2 числа и возвращать из произведение
- */
+function deferr(func) {
+    return function () {
+        const setParam = () => func.apply(this, arguments);
+        return setParam();
+    };
+}
 
-export const multiplier = calculator.bind({ operation: '*' });
+const deferredSayHi = deferr(user.sayHi);
+deferredSayHi.call(user);
 
-/*
- * Ф-ция summator должна быть создана на основе calculator
- * с использования .bind
- * и должна принимать 2 числа и возвращать из сумму
- */
-
-export const summator = calculator.bind({ operation: '+' });
-
-
-/*
- * Ф-ция twice должна быть создана на основе calculator
- * с использования .bind
- * и должна принимать 1 число и возвращать это число умноженное на 2
- */
-
-export const twice = calculator.bind({ operation: '*' }, 2);
+const deferredSum = deferr(sum);
+deferredSum(1, 4);
