@@ -4,20 +4,18 @@
 //3.Create a method for the User object setFullName().
 //4.Test if works correctly.
 
- const user = { //User object
-    firstName: 'John', 
+const user = {
+    firstName: 'John',
     lastName: 'Doe',
-
-    getfullName() { //get full name
+    get fullName() {
         return `${this.firstName} ${this.lastName}`;
-
     },
-    setfullName(fullName) { //set full name
-        const [firstName, lastName] = fullName.split(' ');
+    set fullName(value) {
+        const [firstName, lastName] = value.split(' ');
         this.firstName = firstName;
         this.lastName = lastName;
     },
 };
 
-export default user;
 
+export default user;
