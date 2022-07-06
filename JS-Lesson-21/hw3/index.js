@@ -1,5 +1,17 @@
-const reverseArray = (arr) => (!Array.isArray(arr)) ? null : arr.slice().reverse();
+export const getTittle = () => {
+    return document.querySelector('.title').textContent;
+}
+export const getDescription = () => {
+    return document.querySelector('.about').innerText;
+}
+export const getPlans = () => {
+    return document.querySelectorAll('.plans').innerHTML;
+}
+export const getGoal = () => {
+    return document.querySelector('.goal').outerHTML;
+}
 
-const arr = [1, 2, 3, 4, 5];
-
-console.log(reverseArray(arr)); // ===> [5, 4, 3, 2, 1]
+console.log(getTittle());
+console.log(getDescription());
+console.log(getPlans());
+console.log(getGoal());
