@@ -1,75 +1,66 @@
-/* ===> 1 <=== */
-const student = {
-    name: 'Tom',
-};
+/* eslint-disable max-classes-per-file */
+export class User {
+    // input: id, name, sessionId ( string, string, string)
+    // output: none
+    constructor(id, name, sessionId) {
+        this._id = id;
+        this._name = name;
+        this._sessionId = sessionId;
+    }
 
-function sayName() {
-    console.log(this.name);
+    get id() {
+        return this._id;
+    }
+
+    get name() {
+        return this._name;
+    }
+
+    get sessionId() {
+        return this._sessionId;
+    }
 }
 
-// вызовите ф-цию sayName так, чтобы в консоль вывелось имя студента
-// ... your code here
-sayName.apply(student);
+class UserRepository {
+    // input: users
+    // output: none
+    constructor(users) {
+        this._users = Object.freeze(users);
+    }
 
-// вызовите ф-цию sayName так, чтобы в консоль вывелось имя 'Bruce' (используйте другой объект)
-// ... your code here
-sayName.apply({ name: 'Bruce' });
+    get users() {
+        return this._users;
+    }
 
-/* ===> 2 <=== */
-const company = {
-    companyName: 'Microsoft',
-};
+    getUserNames() {
+        return this._users.map(el => el._name);
+    }
 
-function greeting(firstName, lastName) {
-    console.log(`Hello, ${firstName} ${lastName}. Welcome to the ${this.companyName}`);
+    getUserIds() {
+        return this._users.map(el => el._id);
+    }
+
+    getUserNameById(i) {
+        return this.users.find(({ id }) => i === id).name;
+    }
 }
 
-// вызовите ф-цию greeting так, чтобы в консоль вывелось
-// 'Hello, Bob Marley. Welcome to the Microsoft'
-// используйте объект company
-// ... your code here
-greeting.apply(company, ['Bob', 'Marley']);
+// examples
+const user = new User('1', 'Tom', 'session-id');
 
-/* ===> 3 <=== */
-const country = {
-    countryName: 'Ukraine',
-    capital: 'Kyiv',
-};
+// получить свойства можем
+console.log(user.id); // ===> '1'
+console.log(user.name); // ===> 'Tom'
+console.log(user.sessionId); // ===> 'session-id'
+// но изменить эти свойства нельзя
+// user.name = 'Bob'; // пытаемся изменить старое значение
+// console.log(user.name); // ===> 'Tom' - но изменение проигнорировано, так как setter отсутствует
+// --------------------------
 
-function getPopulation(population) {
-    return `Population in ${this.countryName} is ${population}`;
-}
-
-// вызовите ф-цию getPopulation так, чтобы она вернула
-// 'Population in Ukraine is 43000'
-// 43000 передавайте в виде числа
-// используйте объект country
-// результат работы ф-ции getPopulation присвойте в переменную и выведите в консоль
-// ... your code here
-
-const result = getPopulation.apply(country, [43000]);
-console.log(result);
-
-/* ===> 4 <=== */
-const transaction = {
-    amount: 1200,
-    operation: 'sell',
-    currency: 'USD',
-    exchange: 'NYSE',
-    printTransaction() {
-        console.log(`${this.amount} ${this.currency} - ${this.operation} on ${this.exchange}`);
-    },
-};
-
-const anotherTransaction = {
-    amount: 400,
-    operation: 'buy',
-    currency: 'USD',
-    exchange: 'NASDAQ',
-};
-
-// вызовите метод transaction.printTransaction так, чтобы в консоль вывелось
-// '400 USD - buy on NASDAQ'
-// используйте объект anotherTransaction как контекст
-// ... your code here
-transaction.printTransaction.apply(anotherTransaction);
+const userRep = new UserRepository(user);
+console.log(userRep);
+console.log('user', userRep.users);
+// console.log(userRep.getUserNames());
+// console.log(userRep.getUserIds());
+// console.log('find', userRep.getUserNameById());
+//-------------------------
