@@ -1,7 +1,14 @@
-const squareArray = (arr) =>
-    (!Array.isArray(arr)) ? null : arr.slice().map(x => x * x);
+export const getTitleElement = () => {
+    const titleElem = document.querySelector('.title');
+    console.dir(titleElem);
+    return titleElem;
+};
+getTitleElement();
 
+export const getInputElement = () => {
+    const inputElem = document.querySelector('input');
+    console.dir(inputElem);
+    return inputElem;
+};
+(getInputElement());
 
-const arr = [1, 2, 3, 4, 5];
-
-console.log(squareArray(arr)); // ===> [1, 4, 9, 16, 25]
