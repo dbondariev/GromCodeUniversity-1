@@ -1,4 +1,20 @@
-const arrAverage = (arr) => !Array.isArray(arr) ? null : arr.reduce((a, b) => a + b) / arr.length;
+export const finishList = () => {
+    const listItems = document.querySelector('.list');
+    const specialItem = listItems.querySelector('.special');
+    const firstItem = document.createElement('li');
+    const lastItem = document.createElement('li');
+    const beforeItem = document.createElement('li');
+    const afterItem = document.createElement('li');
 
-const arr = [1, 2, 3, 4];
-console.log(arrAverage(arr)); // ===> 2.5
+    firstItem.textContent = 1;
+    listItems.prepend(firstItem);
+
+    lastItem.textContent = 8;
+    listItems.append(lastItem);
+
+    beforeItem.textContent = 4;
+    specialItem.before(beforeItem);
+
+    afterItem.textContent = 6;
+    specialItem.after(afterItem);
+};
