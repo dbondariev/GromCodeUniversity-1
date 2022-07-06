@@ -10,5 +10,5 @@ export const getInputElement = () => {
     console.dir(inputElem);
     return inputElem;
 };
-(getInputElement());
+getInputElement();
 
