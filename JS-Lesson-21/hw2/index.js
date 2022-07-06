@@ -1,14 +1,14 @@
 export const getItemsList = () => {
     const elementsList = document.querySelectorAll('.technology');
-    console.dir(itemsList);
+    console.dir(elementsList);
     return elementsList;
-}
+};
+getItemsList();
 
 export const getItemsArray = () => {
     const elementsList = document.querySelectorAll('.tool');
-    const elementArray = Array.from(elementsList);
-    console.dir(elementArray);
-    return elementArray;
-}
-
+    const elementsArray = Array.from(elementsList);
+    console.dir(elementsArray);
+    return elementsArray;
+};
 getItemsList();
