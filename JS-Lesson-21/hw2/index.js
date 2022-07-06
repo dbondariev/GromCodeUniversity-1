@@ -1,6 +1,14 @@
-const increaseEvenEl = (arr, delta) => !Array.isArray(arr) ? null : arr.map(el => (el % 2 === 0) ? el + delta : el);
+export const getItemsList = () => {
+    const elementsList = document.querySelectorAll('.technology');
+    console.dir(itemsList);
+    return elementsList;
+}
 
-const array = [1, 2, 3, 4, 5];
-const delta = 1;
+export const getItemsArray = () => {
+    const elementsList = document.querySelectorAll('.tool');
+    const elementArray = Array.from(elementsList);
+    console.dir(elementArray);
+    return elementArray;
+}
 
-console.log(increaseEvenEl(array, delta)); // ===> [2, 4, 6, 8, 10]
+getItemsList();
