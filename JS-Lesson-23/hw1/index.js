@@ -1,39 +1,56 @@
-'use strict';
+const listElem = document.querySelector('.list');
+const inputElem = document.querySelector('.task-input');
+const createBtn = document.querySelector('.create-task-btn');
+const checkboxElem = document.querySelector('.list__item-checkbox');
 
-/**
- * @field {string} id
- * @field {number} price
- * @field {date} dateCreated
- * @field {boolean} isConfirmed
- * @field {date} dateConfirmed
- * @field {string} city
- * @field {string} type
- */
-export class Order {
-    constructor(price, city, type, id) {
-        this.id = id;
-        this.price = price;
-        this.dateCreated = new Date();
-        this.isConfirmed = null;
-        this.dateConfirmed = false;
-        this.city = city;
-        this.type = type;
+const tasks = [
+    { id: Math.random().toString(), text: 'Buy milk', done: false },
+    { id: Math.random().toString(), text: 'Pick up Tom from airport', done: false },
+    { id: Math.random().toString(), text: 'Visit party', done: false },
+    { id: Math.random().toString(), text: 'Visit doctor', done: true },
+    { id: Math.random().toString(), text: 'Buy meat', done: true },
+];
+
+const renderTasks = tasksList => {
+    [...listElem.children].forEach(listItem => listItem.remove());
+    const tasksElems = tasksList
+        .sort((a, b) => a.done - b.done)
+        .map(({ id, text, done }) => {
+            const listItemElem = document.createElement('li');
+            listItemElem.classList.add('list__item');
+            const checkbox = document.createElement('input');
+            checkbox.setAttribute('type', 'checkbox');
+            checkbox.dataset.id = id;
+            checkbox.checked = done;
+            checkbox.classList.add('list__item-checkbox');
+            if (done) {
+                listItemElem.classList.add('list__item_done');
+            }
+            listItemElem.append(checkbox, text);
+
+            return listItemElem;
+        });
+
+    listElem.append(...tasksElems);
+};
+
+const createTask = () => {
+    if (inputElem.value === '') {
+        return;
     }
 
-    checkPrice() {
-        return this.price > 1000;
-    }
+    tasks.push({ id: Math.random().toString(), text: inputElem.value, done: false });
+    renderTasks(tasks);
+    inputElem.value = '';
+};
 
-    confimOrder() {
-        this.isConfirmed = true;
-        this.dateConfirmed = new Date();
-    }
+const markAsDone = event => {
+    const targetElem = tasks.find(el => el.id === event.target.dataset.id);
+    targetElem.done = !targetElem.done;
+    renderTasks(tasks);
+};
 
-    isValidType() {
-        return !!(this.type === 'Buy' || this.type === 'Sell');
-    }
-}
+createBtn.addEventListener('click', createTask);
+listElem.addEventListener('click', markAsDone);
 
-//test data:
-const order1 = new Order(900, 'Lviv', 'Sell');
-console.log(order1);
+renderTasks(tasks);
