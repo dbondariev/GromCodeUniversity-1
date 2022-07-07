@@ -1,3 +1,4 @@
-const setButton = buttonText => {
-    document.querySelector('body').innerHTML = `<button>${buttonText}</button>`;
-};
+document.querySelector('.single-use-btn').addEventListener('click', function action() {
+    console.log('clicked');
+    this.removeEventListener('click', action);
+});
