@@ -1,3 +1,4 @@
-export const setTitle = title => {
-    document.querySelector('.title').textContent = text;
-}
+document.querySelector('.search__btn').addEventListener('click', function () {
+    const inputText = document.querySelector('.search__input');
+    console.log(inputText.value);
+});
