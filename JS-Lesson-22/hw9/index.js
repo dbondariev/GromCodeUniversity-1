@@ -1,9 +1,9 @@
-export const finishForm = () => {
-    const loginForm = document.querySelector('.login-form');
-    const inputLogin = document.createElement('input');
-    inputLogin.setAttribute('type', 'text');
-    inputLogin.setAttribute('name', 'login');
-    loginForm.prepend(inputLogin);
+const buttons = [...document.querySelectorAll('.pagination__page')];
+buttons.forEach(elem => {
+    elem.addEventListener('click', handleClick);
+});
 
-    loginForm.lastElementChild.setAttribute('type', 'password');
-};
+function handleClick(event) {
+    const curentBtn = event.target.dataset;
+    console.log(Object.values(curentBtn).join());
+}
