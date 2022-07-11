@@ -1,3 +1,16 @@
+// Algorithm:
+// 1. Create a function named createLogger that takes no arguments
+// 2. Create a memory variable that will hold the value of the last operation
+// 3. Create a function named warn that takes one argument (str)
+// 4. Add the string to the memory variable
+// 5. Create a function named error that takes one argument (str)
+// 6. Add the string to the memory variable
+// 7. Create a function named log that takes one argument (str) 
+// 8. Add the string to the memory variable
+// 9. Create a function named getRecords that takes one argument (str)
+// 10.Check the argument and return the appropriate array
+// 11. Return the value of the memory variable
+
 function createLogger() {
     const memory = [];
 
