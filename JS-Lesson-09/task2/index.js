@@ -1,3 +1,9 @@
+//Algorithm:
+//1. Create function that takes an object as an argument
+//2. Return the result of the Object.assign method
+
+//Dont forget to test your code
+
 const copyObj = (obj) => {
     return Object.assign({}, obj);
 }
