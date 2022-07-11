@@ -1,3 +1,13 @@
+
+//Algorithm:
+// 1. Create function that takes two arguments (arr, boolean = true)
+// 2. Check if arr is an array
+// 3. If it is return null
+// 4. Use sort method to sort the array
+// 5. Return the sorted array
+
+//Dont forget to test your code
+
 const sortContacts = (arr, boolean = true) => {
     if (!Array.isArray(arr)) {
         return null;
