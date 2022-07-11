@@ -17,8 +17,11 @@ console.log(withdraw(['Ann', 'John', 'User'], [1400, 87, -6], 'John', 50));
 //example 2:
 
 //input
-withdraw(['Ann', 'John', 'User'], [1400, 87, -6], 'User', 10)
+console.log(withdraw(['Ann', 'John', 'User'], [1400, 87, -6], 'User', 10)); 
 
 //output
 //-1
 //и массив balances должен быть [1400, 87, -6]
+
+
+console.log(withdraw(['Ann', 'John', 'User'], [1400, 87, -6], 'User', -10));
