@@ -5,6 +5,14 @@
  * Чтобы eslint не ругался на эту ошибку, для этой задачи он отключен аннотацией eslint-disable
  * */
 
+//Algorithm:
+//1. Create function that takes an object and an array of properties as arguments
+//2. reduce the array of properties to an object
+//3. return the result of the reduce
+
+//Dont forget to test your code
+
+
 const pickProps = (obj, props) => 
     props.reduce((acc, prop) => {
         acc[prop] = obj[prop];

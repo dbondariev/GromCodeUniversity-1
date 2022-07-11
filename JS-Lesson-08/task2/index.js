@@ -6,6 +6,13 @@
  * Чтобы eslint не ругался на эту ошибку, для этой задачи он отключен аннотацией eslint-disable
  * */
 
+//Algorithm:
+//1. Create function that takes an object as an argument
+//2. Call Object.values() on the object
+//3. Call Object.concat() on the result of Object.values()
+
+//Dont forget to test your code
+
 const concatProps = obj => Object.values(obj).concat();
 
 // examples

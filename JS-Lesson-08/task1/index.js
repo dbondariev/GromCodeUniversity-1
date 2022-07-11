@@ -1,3 +1,9 @@
+//Algorithm:
+// Check if the argument is an array
+// If it is an array, reduce it to an object
+
+//Dont forget to test your code
+
 const transformToObject = arr => !Array.isArray(arr) ? {} : arr.reduce((acc, item) => {
     acc[item] = item;
     return acc;

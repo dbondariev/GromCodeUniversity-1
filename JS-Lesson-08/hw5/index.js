@@ -5,6 +5,16 @@
  * Чтобы eslint не ругался на эту ошибку, для этой задачи он отключен аннотацией eslint-disable
  * */
 
+//Algorithm:
+//1. Create function that takes an object as an argument
+//2. Call Object.keys() on the object
+//3. Call Object.reduce() on the result of Object.keys()
+//4. If the value of the current key is greater than or equal to 18, add it to the accumulator
+//5. Return the accumulator
+//6. Return the result of the reduce
+
+//Dont forget to test your code
+
 const getAdults = obj => Object.keys(obj).reduce((acc, key) => {
     if (obj[key] >= 18) {
         acc[key] = obj[key];
