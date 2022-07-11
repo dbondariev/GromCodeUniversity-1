@@ -1,3 +1,12 @@
+//Algorithm:
+//1. Create a function that takes three parameters: clients, balances, client and amount
+//2. Create a variable called clientBalance and set it to the result of balances[clients.indexOf(client)]
+//3. Return clientBalance < amount ? -1 : clientBalance - amount
+//4. Call the function and pass it the following parameters: clients, balances, client and amount
+//5. Print the result of the function
+
+//Dont forget to test your code.
+
 const withdraw = (clients, balances, client, amount) => {
     const clientBalance = balances[clients.indexOf(client)];
 
