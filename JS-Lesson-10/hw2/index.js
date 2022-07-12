@@ -15,8 +15,9 @@ const getRandomNumbers = (length, from, to) => {
         return null;
     }
 
-    for (let i = 1; i <= length; i += 1) {
+    for (let i = 0; i < length; i++) {
         arr.push(Number((Math.random() * (to - from) + from).toFixed()));
     }
     return arr;
 };
+

@@ -8,10 +8,12 @@
 //Dont forget to test your code.
 
 const withdraw = (clients, balances, client, amount) => {
-    const clientBalance = balances[clients.indexOf(client)];
-
-    return clientBalance < amount ? -1 : clientBalance - amount;
-};
+    if(balances[clients.indexOf(client)] < amount) {
+        return -1;
+    }
+    balances[clients.indexOf(client)] -= amount;
+    return balances[clients.indexOf(client)];
+}
 
 //input
 console.log(withdraw(['Ann', 'John', 'User'], [1400, 87, -6], 'John', 50));
@@ -26,7 +28,7 @@ console.log(withdraw(['Ann', 'John', 'User'], [1400, 87, -6], 'John', 50));
 //example 2:
 
 //input
-console.log(withdraw(['Ann', 'John', 'User'], [1400, 87, -6], 'User', 10)); 
+console.log(withdraw(['Ann', 'John', 'User'], [1400, 87, -6], 'User', 10));
 
 //output
 //-1
