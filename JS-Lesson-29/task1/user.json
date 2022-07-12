@@ -1,0 +1,17 @@
+{
+   "name": "Dima",
+   "age": "34",
+   "isStudent": "true",
+    "driverLicense": "true",
+    "hobbies": ["coding", "djing", "outdoors"],
+    "education": ["James Medison High School ", "Hunter College", "New York University"],
+    "graduated": "2015",
+    "skills": ["HTML", "CSS", "JavaScript", "Sass","SQL","Git/Github","Terminal","Fluent in English"],
+    "languages": ["English", "Russian(Can Speak, but I refuse to, only in life or death situations)", "Ukrainian"],
+    "hometown": "New York, NY",
+    "currentCity": "Lviv, UA",
+    "currentJob": "Front-End Developer",
+    "currentCompany": "Self-Employed",
+    "currentPosition": "Front-End Developer",
+    "currentSalary": "$1000"
+}
