@@ -1,37 +1,43 @@
-const counterElem = document.querySelector('.counter');
-const counterValueElem = document.querySelector('.counter__value');
+'use strict';
 
-const onCounterChange = event => {
-    const isButton = event.target.classList.contains('counter__button'); // checks if the target is a button
+/**
+ * @param {number} count
+ * @param {number} period
+ * @return {undefined}
+ */
+// export const pinger = (count, period) => {
+//     let counter = 0;
 
-    if (!isButton) {
-        // if the target is not a button, return undefined
-        return;
-    }
+//     const interval = setInterval(() => {
+//         console.log(`Ping ${counter}`);
+//         counter++;
+//         if (counter === count) {
+//             clearInterval(interval);
+//         }
+//     }, period);
+// };
+//====================================================================================================================
 
-    const { action } = event.target.dataset;
+// input: count(number), period(number)
+// output: undefined
 
-    const oldValue = Number(counterValueElem.textContent); // counter value set on default to 0
+// Algorithm:
+// 1 create counter and console.log(first Ping)
+// 2 create variabe id for setInterval(...)
+// 3 decrease counter by 1 each interval
+// 4 set if until counter > 0 = console.log(Ping) else = stop interval
 
-    const newValue = action === 'decrease' ? oldValue - 1 : oldValue + 1; // if action is decrease, set newValue to oldValue - 1, else set newValue to oldValue + 1
-
-    localStorage.setItem('counterValue', newValue); // save newValue to localStorage
-
-    counterValueElem.textContent = newValue; // set newValue to counterValueElem
-};
-
-counterElem.addEventListener('click', onCounterChange); // add event listener to counterElem
-
-const onStorageChange = e => {
-    // on refresh all pages will have the same value
-    counterValueElem.textContent = e.newValue;
-};
-
-window.addEventListener('storage', onStorageChange); // add event listener to window
-
-const onDocumentLoaded = () => {
-    // if the counterValue is set in localStorage, set it to counterValueElem
-    counterValueElem.textContent = localStorage.getItem('counterValue') || 0;
-};
-
-document.addEventListener('DOMContentLoaded', onDocumentLoaded); // add event listener to document
+export const pinger = (count, period) => {
+    let counter = count;
+    const interval = setInterval(() => {
+        if(counter-- > 0) {
+            console.log(`Ping`);
+        }
+        else {
+            clearInterval(interval);
+        }
+    }, period);
+}
+// examples
+// pinger(5, 100); // makes 5 writes with 100 ms interval
+// pinger(7, 1500); // makes 7 writes with 1500 ms interval
