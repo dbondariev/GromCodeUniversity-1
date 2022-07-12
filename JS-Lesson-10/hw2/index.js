@@ -9,15 +9,15 @@
 
 //Dont forget to test your code
 
-const getRandomNumbers = (length, from, to) => {
-    const arr = [];
-    if (to - from < 1) {
-        return null;
-    }
+// const getRandomNumbers = (length, from, to) => {
+//     const arr = [];
+//     if (to - from < 1) {
+//         return null;
+//     }
 
-    for (let i = 0; i < length; i++) {
-        arr.push(Number((Math.random() * (to - from) + from).toFixed()));
-    }
-    return arr;
-};
+//     for (let i = 0; i < length; i++) {
+//         arr.push(Number((Math.random() * (to - from) + from).toFixed()));
+//     }
+//     return arr;
+// };
 

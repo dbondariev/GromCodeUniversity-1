@@ -109,14 +109,43 @@
 // };
 
 
-const getRandomNumbers = (length, from, to) => {
-    const fromCeil = Math.ceil(from);
-    const toCeil = Math.ceil(to);
+// const getRandomNumbers = (length, from, to) => {
+//     const fromCeil = Math.ceil(from);
+//     const toCeil = Math.ceil(to);
 
-    if (toCeil === fromCeil) {
-        return null;
-    }
+//     if (toCeil === fromCeil) {
+//         return null;
+//     }
 
-    const arr = new Array(length);
-    return arr.map(() => Math.trunc(Math.random() * (toCeil - fromCeil) + fromCeil));
-}
+//     const arr = new Array(length);
+//     return arr.map(() => Math.trunc(Math.random() * (toCeil - fromCeil) + fromCeil));
+// }
+
+//input: number(integer) greater then 0
+//output: number
+
+//Algorithm:
+//1. Create a funtion named maxFibonacci that takes a number as an argument
+//2. Create tree variables:
+//    a. Create a variable named fibonacci and set it to 1
+//    b. Create a variable named fibonacciPrev and set it to 0
+//    c. Create a variable named fibonacciNext and set it to 0
+//3. Create a while loop that will iterate until fibonacciNext is greater than the number
+//4. Run the loop and set fibonacciNext to fibonacci + fibonacciPrev
+// export function maxFibonacci(num) {
+//     let fibonacciPrev = 0;
+//     let fibonacci = 1;
+//     let fibonacciNext = 0;
+
+//     while (fibonacciNext <= num) {
+//         fibonacciNext = fibonacci + fibonacciPrev;
+//         fibonacciPrev = fibonacci;
+//         fibonacci = fibonacciNext;
+//     }
+//     return fibonacciPrev;
+// }
+
+
+// console.log(maxFibonacci(15));
+// console.log(maxFibonacci(8));
+
