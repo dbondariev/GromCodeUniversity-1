@@ -1,6 +1,17 @@
 //Add Image 
 
-const addImage = (imgSrc, callback) => {
+
+// input: imgage source, callback function
+// output: none
+
+// Algorithm:
+// 1 create an img element
+// 2 set source and add it to our page
+// 3 add eventListener function after load and inside callback function call our another callback from func argument 'onImageLoaded'
+// 4 add eventListener in case of 'error'
+
+
+export const addImage = (imgSrc, callback) => {
     const imgElem = document.createElement('img');
     imgElem.setAttribute('alt', 'My Photo');
     imgElem.src = imgSrc;
