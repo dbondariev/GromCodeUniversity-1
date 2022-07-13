@@ -33,5 +33,5 @@ userDataPromise.then(function onSuccess(userData) {
 
 // eslint-disable-next-line prefer-arrow-callback
 userDataPromise.then(function onSuccess(user) {
-  console.log(`My name is ${user.name}. I am ${user.age} years old.`);
+  console.log(`My name is ${user.name}. I am ${user.age} years old`);
 });
