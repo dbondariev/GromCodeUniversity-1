@@ -1,7 +1,7 @@
-// input imgage source, callback function
-// output none
+// input: imgage source, callback function
+// output: none
 
-// algo
+// Algorithm:
 // create promise
 // 1 create an img element
 // 2 set source and add it to our page
@@ -39,17 +39,4 @@ const imgSrc =
 const resultPromise = addImage(imgSrc);
 // resultPromise.then(data => console.log(data));
 resultPromise.catch(error => console.log(error));
-
-// examples
-// addImage(
-//   'https://p.bigstockphoto.com/GeFvQkBbSLaMdpKXF1Zv_bigstock-Aerial-View-Of-Blue-Lakes-And--227291596.jpg',
-//   onImageLoaded,
-// );
-// addImage(
-//   'https://p.bigstockphoto.com/GeFvQkBbSLaMdpKXF1Zv_bigstock-Aerial-View-Of-Blue-Lakes-And--227291596',
-//   onImageLoaded,
-// );
-// addImage(
-//   '',
-//   onImageLoaded,
-// );
+ 
