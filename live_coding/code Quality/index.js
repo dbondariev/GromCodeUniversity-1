@@ -108,18 +108,35 @@
 //     return arr.fill(Math.trunc(Math.random() * (Math.ceil(to) - Math.ceil(from)) + Math.ceil(from)));
 // };
 
+//MY SOLUTION:
 
-// const getRandomNumbers = (length, from, to) => {
-//     const fromCeil = Math.ceil(from);
-//     const toCeil = Math.ceil(to);
+//INPUT: NUMBER(LENGHT OF NEW ARRAY) , NUMBER(START OF RANDOM INTERVAL), NUMBER(END OF RANDOM INTERVAL)
+//OUTPUT: ARRAY OF RANDOM NUMBERS
 
-//     if (toCeil === fromCeil) {
-//         return null;
-//     }
+//Algorithm:
+//1. Convert from and to to smallest integer
+//2. If to = from, return null
+//3. Create new array of length(given as a parameter)
+//4. Fill array with random numbers from given interval by using not Math.random() but Math.trunc(Math.random() * (to - from) + from) as asked in requirements.
 
-//     const arr = new Array(length);
-//     return arr.map(() => Math.trunc(Math.random() * (toCeil - fromCeil) + fromCeil));
-// }
+//Don't forget to test your code!
+
+const getRandomNumbers = (length, from, to) => {
+    const fromCeil = Math.ceil(from);
+    const toCeil = Math.ceil(to);
+
+    if (toCeil === fromCeil) {
+        return null;
+    }
+
+    const arr = new Array(length);
+    return arr.map(() => Math.trunc(Math.random() * (toCeil - fromCeil) + fromCeil));
+}
+
+console.log(getRandomNumbers(5, 10, 10));
+console.log(getRandomNumbers(10, 1, 1));
+console.log(getRandomNumbers(5, -10, 10));
+
 
 //input: number(integer) greater then 0
 //output: number
