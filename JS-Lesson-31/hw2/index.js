@@ -1,27 +1,28 @@
-export const calc = expression => {
-    if (typeof expression !== 'string') {
-        return null;
-    }
+const serverResponsePromise = new Promise(resolve => {
+    const serverResponse = {
+        ok: true,
+        json() {
+            return Promise.resolve({
+                name: 'John',
+                age: 20,
+            });
+        },
+    };
+    resolve(serverResponse);
+});
 
-    const [a, operation, b] = expression.split(' ');
-    let result;
+/*
+ * допиши первый обработчик, чтобы во второй попал объект пользователя
+ */
 
-    switch (operation) {
-        case '+':
-            result = +a + +b;
-            break;
-        case '-':
-            result = +a - +b;
-            break;
-        case '*':
-            result = +a * +b;
-            break;
-        case '/':
-            result = +a / +b;
-            break;
+serverResponsePromise
+    .then(response => {
+        return response.json();
+    })
+    .then(result => {
+        console.log(result); // { name: 'John', age: 20 }
+    });
 
-        default:
-    }
-
-    return `${expression} = ${result}`;
-};
+console.log(
+    '!!! Обрати внимание, что этот текст вывелся самым первым. Ведь это синхронный код, а промисы - асинхронны !!!',
+);
