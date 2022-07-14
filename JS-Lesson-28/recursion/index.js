@@ -37,3 +37,7 @@ export const markFavorites = (objTree, arrFavorites) => {
 
 const result = markFavorites(tree, favorites);
 console.log(result);
+
+
+
+
