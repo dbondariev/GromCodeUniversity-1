@@ -1,9 +1,4 @@
-/*
- * ф-ция makePromise должна вернуть промис со значением переданным в ф-цию
- */
-
-// eslint-disable-next-line arrow-body-style
-const makePromise = number => {
+export const makePromise = number => {
   return Promise.resolve(number);
 };
 
