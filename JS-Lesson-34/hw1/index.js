@@ -1,4 +1,5 @@
-const baseUrl = 'https://613e4b5094dbd600172abb49.mockapi.io/api/v1/users';
+const baseUrl = `https://62d55c2c15ad24cbf2c55d15.mockapi.io/api/v1/:users
+`;
 
 function getUsersList() {
   // eslint-disable-next-line arrow-body-style
@@ -76,3 +77,5 @@ const newUserData = {
 // });
 
 getUsersList().then(data => console.log(data));
+
+
