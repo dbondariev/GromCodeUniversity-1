@@ -94,8 +94,3 @@ function funcAlert(number) {
 sum(1,10,printResult);
 
 sum(1,10,funcAlert);
-
-
-
-
-
