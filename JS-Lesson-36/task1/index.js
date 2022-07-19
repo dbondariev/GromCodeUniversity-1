@@ -13,7 +13,7 @@
 // const result = func();
 // console.log('Hello there');
 
-const getUser = async userId => {
+export const getUser = async userId => {
   // обработка ошибки: поместить в try и тд
   try {
     // получить данные с github
