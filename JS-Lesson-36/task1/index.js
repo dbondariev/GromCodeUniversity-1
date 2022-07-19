@@ -27,7 +27,7 @@ export const getUser = async userId => {
     return userData;
   } catch (error) {
     // обработать ошибку и закинуть дальше ->
-    throw new Error('Failed to fetch user')
+    throw new Error('Failed to get user data')
   }
 };
 
