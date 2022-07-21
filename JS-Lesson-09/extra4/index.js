@@ -18,12 +18,7 @@ const customers = {
 };
 
 const getCustomersList = obj => {
-    const order = Object.entries(obj).sort((a, b) => a[1].age - b[1].age);
-
-    const first = order.map(el => el[1]);
-    console.log(first);
-    const second = order.map(el => el[0]);
-
-    console.log(order.map(el => ({ ...el[1], id: el[0] })));
-    return first.map((el, index) => ({ ...el, id: second[index] }));
+    Object.entries(obj)
+    .map(([id, cutomers]) => ({ id, ...cutomers }))
+    .sort((a, b) => a.age - b.age);
 };
